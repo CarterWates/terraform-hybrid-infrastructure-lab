@@ -30,7 +30,7 @@ tree:
 
 security-check:
 	@echo "Checking for files that should not be committed..."
-	@test ! -f .env || (echo ".env exists locally and must remain untracked"; exit 1)
+	@! git ls-files --error-unmatch .env >/dev/null 2>&1 || (echo ".env is tracked and must be removed from Git"; exit 1)
 	@find . -path ./.git -prune -o \( -name "*.tfstate" -o -name "*.tfvars" -o -name "*.pem" -o -name "*.key" \) -print
 
 check-docker:

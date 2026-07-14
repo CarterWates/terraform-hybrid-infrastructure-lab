@@ -2,7 +2,42 @@
 
 The local monitoring stack requires Docker before `make docker-validate` or `make local-up` can run.
 
-## macOS
+## macOS Option A: Docker CLI With Colima
+
+This repository was verified on macOS using Homebrew packages for Docker CLI, Docker Compose, and Colima:
+
+```bash
+brew install docker docker-compose colima
+```
+
+Configure Docker to find Homebrew's Compose plugin:
+
+```json
+{
+  "cliPluginsExtraDirs": [
+    "/opt/homebrew/lib/docker/cli-plugins"
+  ]
+}
+```
+
+Save that JSON at `~/.docker/config.json`.
+
+Start the local Docker engine:
+
+```bash
+colima start --cpu 2 --memory 4 --disk 20
+```
+
+Verify:
+
+```bash
+docker --version
+docker compose version
+colima status
+docker info
+```
+
+## macOS Option B: Docker Desktop
 
 Install Docker Desktop from Docker's official website, then start the Docker Desktop app once before using the CLI.
 
@@ -11,6 +46,7 @@ After installation, verify:
 ```bash
 docker --version
 docker compose version
+docker info
 ```
 
 If `docker` is still not found in a new terminal, open Docker Desktop and check that command line tools are installed or available on your shell `PATH`.
