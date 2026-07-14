@@ -24,6 +24,9 @@ jobs:
       - name: Validate public-safe file patterns
         run: make security-check
 
+      - name: Run repository validation tests
+        run: make test-all
+
       - name: Confirm documentation exists
         run: |
           test -f README.md

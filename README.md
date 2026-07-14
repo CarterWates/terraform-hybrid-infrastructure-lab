@@ -101,8 +101,8 @@ flowchart LR
 - [x] Public-safe documentation scaffolded
 - [x] Secret and generated-file exclusions added
 - [x] Initial development commands documented
-- [ ] Local Docker monitoring stack implemented
-- [ ] Grafana dashboards provisioned
+- [x] Local Docker monitoring stack implemented
+- [x] Grafana dashboards provisioned
 - [ ] Python health agent implemented
 - [ ] Terraform AWS foundation implemented
 - [ ] Lambda health ingestion API implemented
@@ -158,7 +158,14 @@ make tree
 make security-check
 ```
 
-Implementation-phase commands are present as placeholders and will be replaced with working commands as each subsystem is added.
+Docker commands are available for the local monitoring stack. Later Python and Terraform commands will be wired in as those subsystems are implemented.
+
+```bash
+make docker-validate
+make local-up
+make local-status
+make local-down
+```
 
 ## Security Principles
 
