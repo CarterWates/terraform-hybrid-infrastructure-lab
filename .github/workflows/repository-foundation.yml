@@ -27,6 +27,12 @@ jobs:
       - name: Run repository validation tests
         run: make test-all
 
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Check Terraform formatting
+        run: terraform fmt -check -recursive infrastructure/terraform
+
       - name: Confirm documentation exists
         run: |
           test -f README.md

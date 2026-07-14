@@ -1,4 +1,4 @@
-.PHONY: help repo-check tree security-check check-docker local-up local-down local-logs local-status docker-validate test-health-agent test-backup-agent test-health-api test-all terraform-fmt terraform-validate terraform-plan lint clean
+.PHONY: help repo-check tree security-check check-docker check-terraform local-up local-down local-logs local-status docker-validate test-health-agent test-backup-agent test-health-api test-all terraform-fmt terraform-validate terraform-plan lint clean
 
 help:
 	@echo "Terraform-Managed Hybrid Infrastructure Lab"
@@ -36,6 +36,9 @@ security-check:
 check-docker:
 	@command -v docker >/dev/null 2>&1 || (echo "Docker is required for this command. Install Docker Desktop or Docker Engine, then retry."; exit 127)
 
+check-terraform:
+	@command -v terraform >/dev/null 2>&1 || (echo "Terraform is required for this command. Install Terraform, then retry."; exit 127)
+
 local-up: check-docker
 	cd local-infrastructure && docker compose --env-file ../.env up -d
 
@@ -64,14 +67,14 @@ test-all:
 	python3 -m unittest discover -s tests
 	python3 -m unittest discover -s agents/health-agent/tests
 
-terraform-fmt:
-	@echo "Not implemented yet. Terraform files will be added in a later phase."
+terraform-fmt: check-terraform
+	terraform fmt -recursive infrastructure/terraform
 
-terraform-validate:
-	@echo "Not implemented yet. Terraform files will be added in a later phase."
+terraform-validate: check-terraform
+	cd infrastructure/terraform/environments/dev && terraform init -backend=false && terraform validate
 
-terraform-plan:
-	@echo "Not implemented yet. This target will run terraform plan only, never apply."
+terraform-plan: check-terraform
+	cd infrastructure/terraform/environments/dev && terraform plan
 
 lint:
 	@echo "Not implemented yet. Linting will be configured with the Python projects."

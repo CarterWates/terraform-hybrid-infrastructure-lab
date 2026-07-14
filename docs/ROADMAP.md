@@ -36,6 +36,8 @@ Status: initial local JSON output and unit tests are implemented. AWS delivery i
 - Keep names configurable and state out of Git.
 - Validate with `terraform fmt`, `terraform validate`, and reviewed `terraform plan`.
 
+Status: dev environment foundation files are implemented. Running `terraform init` and `terraform validate` requires Terraform and AWS provider download access.
+
 ## Phase 6: Lambda Health API
 
 - Accept `POST /health` telemetry through API Gateway.

@@ -104,7 +104,7 @@ flowchart LR
 - [x] Local Docker monitoring stack implemented
 - [x] Grafana dashboards provisioned
 - [x] Python health agent implemented
-- [ ] Terraform AWS foundation implemented
+- [x] Terraform AWS foundation implemented
 - [ ] Lambda health ingestion API implemented
 - [ ] Backup agent implemented
 - [ ] CloudWatch alarms and outage detection implemented
@@ -168,6 +168,8 @@ make local-up
 make local-status
 make local-down
 make test-health-agent
+make terraform-fmt
+make terraform-validate
 ```
 
 ## Security Principles

@@ -1,0 +1,7 @@
+aws_region         = "us-east-1"
+environment        = "dev"
+project_name       = "hybrid-lab"
+health_table_name  = "HybridLabHealth"
+backup_bucket_name = "replace-with-globally-unique-backup-bucket-name"
+alert_email        = ""
+log_retention_days = 14

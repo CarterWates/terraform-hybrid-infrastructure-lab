@@ -16,6 +16,8 @@ This project is designed as a public portfolio repository, so the default postur
 
 Terraform state is excluded from Git. Early phases should use local state only while learning and validating. Remote state should be added later with an encrypted S3 backend, versioning, restricted IAM, and a documented migration checklist.
 
+The dev foundation keeps `backup_bucket_force_destroy` disabled by default, blocks public S3 access, enables bucket encryption and versioning, and enables DynamoDB point-in-time recovery.
+
 ## AWS Credentials
 
 Use one of these approaches locally:
