@@ -1,0 +1,33 @@
+name: Repository Foundation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  foundation:
+    name: Validate repository foundation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Show Makefile help
+        run: make help
+
+      - name: Validate public-safe file patterns
+        run: make security-check
+
+      - name: Confirm documentation exists
+        run: |
+          test -f README.md
+          test -f docs/ROADMAP.md
+          test -f docs/SECURITY.md
+          test -f docs/ARCHITECTURE.md
+          test -f docs/runbooks/TEARDOWN.md
