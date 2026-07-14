@@ -52,7 +52,7 @@ docker-validate: check-docker
 	cd local-infrastructure && docker compose config
 
 test-health-agent:
-	@echo "Not implemented yet. Health agent tests will be added in a later phase."
+	python3 -m unittest discover -s agents/health-agent/tests
 
 test-backup-agent:
 	@echo "Not implemented yet. Backup agent tests will be added in a later phase."
@@ -62,6 +62,7 @@ test-health-api:
 
 test-all:
 	python3 -m unittest discover -s tests
+	python3 -m unittest discover -s agents/health-agent/tests
 
 terraform-fmt:
 	@echo "Not implemented yet. Terraform files will be added in a later phase."

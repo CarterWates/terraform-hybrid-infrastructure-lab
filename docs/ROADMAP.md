@@ -28,6 +28,8 @@ This roadmap keeps the lab honest and incremental. Each phase should end with va
 - Print JSON locally before any AWS integration.
 - Add `--once`, loop mode, environment configuration, structured logging, and pytest coverage.
 
+Status: initial local JSON output and unit tests are implemented. AWS delivery is intentionally deferred until the ingestion API exists.
+
 ## Phase 5: Terraform AWS Foundation
 
 - Provision DynamoDB, S3, CloudWatch log groups, SNS, and least-privilege IAM where needed.

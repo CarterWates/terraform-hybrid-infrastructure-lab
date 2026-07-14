@@ -103,7 +103,7 @@ flowchart LR
 - [x] Initial development commands documented
 - [x] Local Docker monitoring stack implemented
 - [x] Grafana dashboards provisioned
-- [ ] Python health agent implemented
+- [x] Python health agent implemented
 - [ ] Terraform AWS foundation implemented
 - [ ] Lambda health ingestion API implemented
 - [ ] Backup agent implemented
@@ -167,6 +167,7 @@ make docker-validate
 make local-up
 make local-status
 make local-down
+make test-health-agent
 ```
 
 ## Security Principles
