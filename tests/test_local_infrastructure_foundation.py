@@ -19,6 +19,7 @@ class LocalInfrastructureFoundationTests(unittest.TestCase):
 
         self.assertIn("hybrid-lab", text)
         self.assertIn("healthcheck:", text)
+        self.assertIn("curl -fsS http://localhost/", text)
         self.assertIn("grafana-data", text)
         self.assertIn("prometheus-data", text)
 
