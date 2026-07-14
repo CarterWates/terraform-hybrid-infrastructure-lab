@@ -37,19 +37,19 @@ check-docker:
 	@command -v docker >/dev/null 2>&1 || (echo "Docker is required for this command. Install Docker Desktop or Docker Engine, then retry."; exit 127)
 
 local-up: check-docker
-	cd local-infrastructure && docker compose up -d
+	cd local-infrastructure && docker compose --env-file ../.env up -d
 
 local-down: check-docker
-	cd local-infrastructure && docker compose down
+	cd local-infrastructure && docker compose --env-file ../.env down
 
 local-logs: check-docker
-	cd local-infrastructure && docker compose logs -f
+	cd local-infrastructure && docker compose --env-file ../.env logs -f
 
 local-status: check-docker
-	cd local-infrastructure && docker compose ps
+	cd local-infrastructure && docker compose --env-file ../.env ps
 
 docker-validate: check-docker
-	cd local-infrastructure && docker compose config
+	cd local-infrastructure && docker compose --env-file ../.env config
 
 test-health-agent:
 	python3 -m unittest discover -s agents/health-agent/tests
