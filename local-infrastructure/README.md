@@ -13,6 +13,8 @@ This directory contains the local Docker Compose monitoring stack for the lab.
 
 ## Setup
 
+Install Docker before running the stack. See [Docker Setup Runbook](../docs/runbooks/DOCKER_SETUP.md).
+
 From the repository root, create a local environment file:
 
 ```bash

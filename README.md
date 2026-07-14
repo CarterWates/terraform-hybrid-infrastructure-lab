@@ -141,6 +141,8 @@ terraform version
 aws --version
 ```
 
+Docker installation notes are in [docs/runbooks/DOCKER_SETUP.md](docs/runbooks/DOCKER_SETUP.md).
+
 Copy the example environment file before running local services:
 
 ```bash
